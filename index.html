@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Сайт собирается</title>
+<meta name="description" content="">
+<meta name="robots" content="noindex, nofollow">
+<meta property="og:title" content="Сайт собирается">
+<meta property="og:description" content="">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap">
+<link rel="stylesheet" href="style.css">
+<style>
+:root { --шрифт-заголовков: Montserrat, system-ui, sans-serif;
+  --шрифт-текста: 'Open Sans', -apple-system, 'Segoe UI', sans-serif;
+  --цвет-фон: #F5F1E9;  --цвет-фон-2: #EFE9DD;  --цвет-фон-карточки: #F5F1E9;
+  --цвет-текст: #1B2846;  --цвет-текст-мягкий: #36508C;  --цвет-текст-тихий: #5D6D93;
+  --цвет-акцент: #C49A62;  --цвет-акцент-тёмный: #D2B287;  --цвет-акцент-яркий: #E0CAAC;
+  --цвет-акцент-глубже: #896534;  --цвет-акцент-маркер: #CEAB7C;
+  --цвет-на-акценте: #1B2846;  --цвет-линия: #E4DAC4;
+  --цвет-тёмный-фон: #1B2846;  --цвет-тёмный-фон-2: #202F53;  --цвет-тёмный-текст: #F5F1E9;
+  --цвет-тёмный-фон-3: #1D2B4B;  --цвет-тёмный-фон-4: #1B2846;
+  --цвет-тёплый: #A15A29;  --цвет-тёплый-мягкий: #CC7336;
+  --цвет-стекло: color-mix(in srgb, #1B2846 86%, transparent);
+  --тень: 0 12px 34px color-mix(in srgb, #1B2846 6%, transparent);
+  --тень-чип: 0 10px 30px color-mix(in srgb, #1B2846 12%, transparent);
+  --тень-глубокая: 0 24px 60px color-mix(in srgb, #1B2846 35%, transparent);
+  --тень-спутник: 0 30px 60px color-mix(in srgb, #1B2846 70%, transparent);
+  --тень-плиты: 0 40px 100px color-mix(in srgb, #1B2846 70%, transparent);
+  --кегль-h1: 33px;  --кегль-h2: clamp(28px, 4.5vw, 44px);
+  --кегль-текст: clamp(16px, 1vw, 17px);  --кегль-лид: clamp(17px, 1.1vw, 18px);
+  --кегль-мелкий: 14px;  --кегль-кикер: clamp(14px, 1.1vw, 15px);  --разрядка-кикера: .03em;
+  --кегль-цифра: 30px;
+  --отступ-секции: clamp(56px, 9vw, 120px);  --отступ-блока: clamp(16px, 2vw, 28px);
+  --отступ-секции-тихо: clamp(44px, 7vw, 94px);  --отступ-секции-громко: clamp(64px, 10.5vw, 140px);
+  --ширина: 1120px;  --ширина-колонки: 560px;  --радиус: 16px;  --радиус-малый: 8px;
+  --радиус-карточки: 18px;  --радиус-плитки: 22px;  --радиус-телефон: 46px;  --кнопка-радиус: 14px;
+  --радиус-модуля: 16px;  --нить: 2px;
+  --плавность: cubic-bezier(.2, .7, .2, 1);  --длительность: .25s;
+  --цвет-тёплый-тёмный: #A15A29;
+}
+@media (min-width: 900px) {
+  :root { --кегль-h1: clamp(44px, 4vw, 58px); }
+}
+:root, .светлый { --цвет-кнопки: #A15A29; --цвет-на-кнопке: #F5F1E9; --цвет-кнопки-навёл: #804821; }
+.тёмный { --цвет-кнопки: #C49A62; --цвет-на-кнопке: #1B2846; --цвет-кнопки-навёл: var(--цвет-акцент-тёмный); }
+
+</style>
+<script>
+(function () {
+  var ЭТАЛОН = 0.535;                  // очко Open Sans — текстовой гарнитуры утверждённых макетов
+  var ПОТОЛОК = 1.2, МЁРТВАЯ = 0.02;   // выше потолка расползается раскладка; ближе к единице не трогаем вовсе
+  var КОМПЬЮТЕР = "(min-width: 900px)";
+  var ТОКЕНЫ = ["--кегль-текст", "--кегль-лид", "--кегль-мелкий", "--кегль-кикер"];
+  var корень = document.documentElement;
+  var холст = document.createElement("canvas").getContext("2d");
+  var ждём = 0;
+
+  function мера(буква) { var м = холст.measureText(буква); return (м && м.actualBoundingBoxAscent) || 0; }
+
+  function применить() {
+    ждём = 0;
+    if (!холст) { return; }
+
+    for (var i = 0; i < ТОКЕНЫ.length; i++) { корень.style.removeProperty(ТОКЕНЫ[i]); }
+    var стиль = getComputedStyle(корень), стек = стиль.getPropertyValue("--шрифт-текста").trim();
+    if (!стек) { return; }
+    холст.font = "400 100px " + стек;
+
+    var очко = Math.max(мера("х"), мера("x")) / 100;
+    if (!(очко > 0)) { return; }
+    var k = Math.round(Math.min(ПОТОЛОК, Math.max(1, ЭТАЛОН / очко)) * 1000) / 1000;
+    if (k - 1 < МЁРТВАЯ || !matchMedia(КОМПЬЮТЕР).matches) { k = 1; }
+    корень.setAttribute("data-очко", очко.toFixed(3));      // чтобы проверка могла сказать числа вслух
+    корень.setAttribute("data-поправка", k.toFixed(3));
+    if (k === 1) { return; }
+    for (i = 0; i < ТОКЕНЫ.length; i++) {
+      var было = стиль.getPropertyValue(ТОКЕНЫ[i]).trim();
+      if (было) { корень.style.setProperty(ТОКЕНЫ[i], "calc((" + было + ") * " + k + ")"); }
+    }
+  }
+
+  применить();
+
+  if (document.fonts && document.fonts.ready) { document.fonts.ready.then(применить); }
+
+  addEventListener("resize", function () { ждём = ждём || requestAnimationFrame(применить); });
+})();
+</script>
+</head>
+<body class="с-липкой-кнопкой">
+<section class="блок блок--первый-экран первый-экран--разворот тёмный" id="экран-1" data-тип="первый-экран" data-схема="разворот" data-ключ-макета="светлая" data-картинка="фото">
+  <header class="шапка">
+    <a class="шапка__лого" href="#">Андрей Туманов</a>
+    <span class="шапка__лиц"><svg class="иконка" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+  <path d="M12 3l7.5 3v5.5c0 4.6-3.2 8.2-7.5 9.5-4.3-1.3-7.5-4.9-7.5-9.5V6L12 3z"/>
+</svg><span><span class="полн">методист-инструктор по дыханию · 6 лет практики</span></span></span>
+  </header>
+  <span class="пятно пятно--1"></span><span class="пятно пятно--2"></span>
+  <div class="блок__внутри">
+    <div class="первый-экран__текст">
+      <p class="кикер"><svg class="иконка" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+  <path d="M13 2L4 14h7l-1 8 9-12h-7z"/>
+</svg>Оздоровительное дыхание по методу Бутейко</p>
+      <h1>Андрей Туманов<span class="делитель"> —</span> <span class="хвост">учу замечать своё дыхание и его <em class="акцент">особенности</em></span></h1>
+      <p class="лид">На занятиях учимся замечать особенности своего дыхания, понимать смысл практики и постепенно осваивать её вместе со мной</p>
+      <ul class="список-иконок">
+        <li><i class="галка"></i><span>6 лет практики консультирования по методу Бутейко</span></li>
+        <li><i class="галка"></i><span>Более 700 человек прошли консультации</span></li>
+        <li><i class="галка"></i><span>Формат — очно и по видеосвязи, индивидуально</span></li>
+      </ul>
+      <div class="первый-экран__действие"><a class="кнопка кнопка--главная" href="https://max.ru/u/f9LHodD0cOI62tobt6cCv0GNMzPMMu8sw2jGDPEFasSk-9MV9cb6i8744rw">Написать в MAX</a></div>
+      <ul class="цифры">
+        <li class="цифра"><b class="цифра__значение">6</b><span class="цифра__подпись">лет практики</span></li>
+        <li class="цифра"><b class="цифра__значение">700+</b><span class="цифра__подпись">человек прошли консультации</span></li>
+      </ul>
+      <p class="мелкий первый-экран__доверие"><svg class="иконка" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+  <path d="M12 3l7.5 3v5.5c0 4.6-3.2 8.2-7.5 9.5-4.3-1.3-7.5-4.9-7.5-9.5V6L12 3z"/>
+</svg> Первый вопрос ни к чему не обязывает</p>
+    </div>
+    <figure class="картинка картинка--фото картинка--край первый-экран__картинка" style="--лицо-в-кадре: .22">
+      <picture><source media="(max-width: 899px)" srcset="img/andrey-bust-source.jpg"><img src="img/andrey-bust-source.jpg" alt="Андрей Туманов учу замечать своё дыхание и его особенности" data-лицо="50,22" fetchpriority="high"></picture>
+      <div class="чип чип--ролик парит парит--2"><svg class="иконка" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+  <circle cx="12" cy="12" r="9"/>
+  <path d="M10 8.5l6 3.5-6 3.5z"/>
+</svg><span><b>Онлайн и очно</b> — вы выбираете формат</span></div>
+      <span class="чип чип--автор"><b>Андрей Туманов</b> · 6 · лет практики консультирования</span>
+      <div class="карточка карточка--стекло первый-экран__регалии парит">
+        <p class="карточка__имя">Андрей Туманов</p>
+        <p class="карточка__роль">методист-инструктор по методу Бутейко</p>
+        <ul class="карточка__опоры">
+          <li>6 · лет практики консультирования</li>
+          <li>700+ · человек прошли консультации</li>
+        </ul>
+      </div>
+    </figure>
+  </div>
+</section>
+<div class="липкая-кнопка липкая-кнопка--тёмная"><a class="кнопка кнопка--главная" href="https://max.ru/u/f9LHodD0cOI62tobt6cCv0GNMzPMMu8sw2jGDPEFasSk-9MV9cb6i8744rw">Написать в MAX</a></div>
+<script>
+(function () {
+  var СПИТ = "главная-на-виду";                       // класс на body; правило сна — в стилях
+  var кнопка = document.querySelector(".первый-экран__действие .кнопка--главная");
+  if (!кнопка || !window.IntersectionObserver) { return; }
+
+  function пометить(на_виду) { document.body.classList.toggle(СПИТ, !!на_виду); }
+
+  var б = кнопка.getBoundingClientRect();
+  пометить(б.bottom > 0 && б.top < (window.innerHeight || 0));
+
+  requestAnimationFrame(function () {
+    requestAnimationFrame(function () { document.body.classList.add("панель-с-переходом"); });
+  });
+
+  new IntersectionObserver(function (записи) {
+    пометить(записи[записи.length - 1].isIntersecting);
+  }, { threshold: 0 }).observe(кнопка);
+})();
+</script>
+</body>
+</html>
