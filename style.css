@@ -1145,6 +1145,9 @@ h2 .хвост-акцент { display: block; font-weight: 600; font-size: .6em;
 
   max-width: 15em; }
 
+.разворот__кикер-шапки { display: flex; align-items: center; gap: .4em; font: 600 var(--кегль-мелкий)/1 var(--шрифт-текста);
+  letter-spacing: var(--разрядка-кикера); color: var(--цвет-акцент); white-space: nowrap; }
+.разворот__кикер-шапки .иконка, .разворот__кикер-шапки svg { width: .875em; height: .875em; flex: none; }
 .первый-экран--разворот .блок__внутри { display: grid; gap: 0; min-width: 0; }
 .первый-экран--разворот .блок__внутри > * { min-width: 0; }
 .первый-экран--разворот .первый-экран__картинка { order: -1; position: relative; aspect-ratio: 4 / 5;

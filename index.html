@@ -95,6 +95,9 @@
 <section class="блок блок--первый-экран первый-экран--разворот тёмный" id="экран-1" data-тип="первый-экран" data-схема="разворот" data-ключ-макета="светлая" data-картинка="фото">
   <header class="шапка">
     <a class="шапка__лого" href="#">Андрей Туманов</a>
+    <span class="разворот__кикер-шапки"><svg class="иконка" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+  <path d="M13 2L4 14h7l-1 8 9-12h-7z"/>
+</svg>Оздоровительное дыхание по методу Бутейко</span>
     <span class="шапка__лиц"><svg class="иконка" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
   <path d="M12 3l7.5 3v5.5c0 4.6-3.2 8.2-7.5 9.5-4.3-1.3-7.5-4.9-7.5-9.5V6L12 3z"/>
 </svg><span><span class="полн">методист-инструктор по дыханию · 6 лет практики</span></span></span>
@@ -102,10 +105,7 @@
   <span class="пятно пятно--1"></span><span class="пятно пятно--2"></span>
   <div class="блок__внутри">
     <div class="первый-экран__текст">
-      <p class="кикер"><svg class="иконка" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-  <path d="M13 2L4 14h7l-1 8 9-12h-7z"/>
-</svg>Оздоровительное дыхание по методу Бутейко</p>
-      <h1>Андрей Туманов<span class="делитель"> —</span> <span class="хвост">консультирую по нормализации дыхания и его <em class="акцент">особенностям</em></span></h1>
+      <h1>Андрей Туманов<span class="делитель"> —</span> <span class="хвост">консультации по нормализации <em class="акцент">дыхания</em></span></h1>
       <p class="лид">На занятиях учимся замечать особенности своего дыхания, понимать смысл практики и постепенно осваивать её вместе со мной</p>
       <ul class="список-иконок">
         <li><i class="галка"></i><span>6 лет практики консультирования по методу Бутейко</span></li>
@@ -113,6 +113,11 @@
         <li><i class="галка"></i><span>Формат — очно и по видеосвязи, индивидуально</span></li>
       </ul>
       <div class="первый-экран__действие"><a class="кнопка кнопка--главная" href="https://max.ru/u/f9LHodD0cOI62tobt6cCv0GNMzPMMu8sw2jGDPEFasSk-9MV9cb6i8744rw">Написать в MAX</a></div>
+      <div class="разворот__ещё-связь">
+        <a href="https://vk.ru/methodbuteyko" target="_blank" rel="noopener">ВКонтакте</a>
+        <a href="https://t.me/AndreyTymanov" target="_blank" rel="noopener">Telegram</a>
+        <a href="mailto:andrey.tymanov@yandex.ru">Почта</a>
+      </div>
       <ul class="цифры">
         <li class="цифра"><b class="цифра__значение">6</b><span class="цифра__подпись">лет практики</span></li>
         <li class="цифра"><b class="цифра__значение">700+</b><span class="цифра__подпись">человек прошли консультации</span></li>
@@ -122,7 +127,7 @@
 </svg> Первый вопрос ни к чему не обязывает</p>
     </div>
     <figure class="картинка картинка--фото картинка--край первый-экран__картинка" style="--лицо-в-кадре: .28">
-      <picture><source media="(max-width: 899px)" srcset="img/andrey-portret-telefon.webp"><img src="img/andrey-portret.webp" alt="Андрей Туманов консультирую по нормализации дыхания и его особенностям" data-лицо="50,22" fetchpriority="high"></picture>
+      <picture><source media="(max-width: 899px)" srcset="img/andrey-portret-telefon.webp"><img src="img/andrey-portret.webp" alt="Андрей Туманов консультации по нормализации дыхания" data-лицо="50,22" fetchpriority="high"></picture>
       <div class="чип чип--ролик парит парит--2"><svg class="иконка" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
   <circle cx="12" cy="12" r="9"/>
   <path d="M10 8.5l6 3.5-6 3.5z"/>
@@ -138,6 +143,13 @@
       </div>
     </figure>
   </div>
+  <style>
+    .разворот__ещё-связь { display: flex; flex-wrap: wrap; gap: .6em; margin-top: .75em; }
+    .разворот__ещё-связь a { display: inline-flex; align-items: center; justify-content: center;
+      padding: .55em 1.2em; border: 1.5px solid #F5F1E9; border-radius: var(--кнопка-радиус);
+      color: #F5F1E9; font: 600 .875em/1 var(--шрифт-текста); text-decoration: none; white-space: nowrap; }
+    .разворот__ещё-связь a:hover { background: rgba(245, 241, 233, .12); }
+  </style>
 </section>
 <div class="липкая-кнопка липкая-кнопка--тёмная"><a class="кнопка кнопка--главная" href="https://max.ru/u/f9LHodD0cOI62tobt6cCv0GNMzPMMu8sw2jGDPEFasSk-9MV9cb6i8744rw">Написать в MAX</a></div>
 <script>
