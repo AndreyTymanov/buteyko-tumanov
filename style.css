@@ -1954,6 +1954,21 @@ h2 .хвост-акцент { display: block; font-weight: 600; font-size: .6em;
   #экран-13.тёмный .подвал__сетка p, #экран-13.тёмный .подвал__низ { color: color-mix(in srgb, var(--цвет-тёмный-текст) 72%, transparent); }
   #экран-13.тёмный h4 { color: var(--цвет-акцент); }
   #экран-13.тёмный .подвал__низ { border-top: 1px solid color-mix(in srgb, var(--цвет-тёмный-текст) 14%, transparent); }
+
+  #экран-13 .подвал__макс { display: flex; align-items: center; justify-content: center; min-height: 3.25rem; padding: .75rem 1.5rem;
+    border-radius: var(--радиус); font-weight: 600; font-size: var(--кегль-текст); text-decoration: none;
+    background: var(--цвет-кнопки, var(--цвет-акцент)); color: var(--цвет-на-кнопке, var(--цвет-на-акценте)); box-shadow: var(--тень-чип); }
+  #экран-13 .подвал__макс:hover { background: var(--цвет-кнопки-навёл, var(--цвет-акцент-тёмный)); }
+  #экран-13 .ещё-связь { display: grid; grid-template-columns: 1fr 1fr; gap: .5rem; margin-top: .75rem; }
+  #экран-13 .ещё-связь a { display: inline-flex; align-items: center; justify-content: center; min-height: 2.75rem;
+    padding: .5rem 1rem; border-radius: var(--радиус); font-weight: 600; font-size: var(--кегль-мелкий);
+    line-height: 1.2; text-decoration: none; white-space: nowrap; }
+  #экран-13.светлый .ещё-связь a { color: var(--цвет-текст); border: 1.5px solid color-mix(in srgb, var(--цвет-текст) 35%, transparent);
+    background: color-mix(in srgb, var(--цвет-текст) 4%, transparent); }
+  #экран-13.тёмный .ещё-связь a { color: var(--цвет-тёмный-текст); border: 1.5px solid color-mix(in srgb, var(--цвет-тёмный-текст) 38%, transparent);
+    background: color-mix(in srgb, var(--цвет-тёмный-текст) 6%, transparent); }
+  #экран-13.светлый .ещё-связь a:hover { background: color-mix(in srgb, var(--цвет-текст) 10%, transparent); }
+  #экран-13.тёмный .ещё-связь a:hover { background: color-mix(in srgb, var(--цвет-тёмный-текст) 14%, transparent); }
   @media (max-width: 899px) {
     #экран-13 { margin-bottom: calc(-5 * var(--кегль-текст) - env(safe-area-inset-bottom));
       padding-bottom: calc(var(--отступ-блока) + 5 * var(--кегль-текст) + env(safe-area-inset-bottom)); }
