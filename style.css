@@ -1827,7 +1827,6 @@ h2 .хвост-акцент { display: block; font-weight: 600; font-size: .6em;
   #экран-09 .вопрос-карточка { align-self: start; }
   #экран-09 .вопрос-карточка b { font-size: var(--кегль-лид); }
   #экран-09 .вопрос-карточка .кнопка { margin-top: .5rem; }
-  #экран-09 .вопрос-карточка .ещё-связь { margin-top: .25rem; }
   #экран-09.тёмный .вопросы .вопрос, #экран-09.тёмный .вопрос-карточка { box-shadow: var(--тень-чип); }
   #экран-09.светлый .вопросы .вопрос { box-shadow: var(--тень); }
   #экран-09.светлый .вопросы .вопрос[open] { box-shadow: var(--тень); }
@@ -1836,20 +1835,6 @@ h2 .хвост-акцент { display: block; font-weight: 600; font-size: .6em;
     #экран-09 .вопросы-тело { grid-template-columns: minmax(0, 1.7fr) minmax(0, 1fr); gap: 2.5rem; }
     #экран-09 .вопрос-карточка { position: sticky; top: 6rem; padding: 2rem 1.75rem; }
   }
-
-  #экран-09 .вопрос-карточка .кнопка { min-height: 3.25rem; padding-inline: 2rem; font-size: var(--кегль-лид); }
-  #экран-09 .ещё-связь { display: flex; flex-wrap: wrap; gap: .5rem; margin-top: .875rem; }
-  #экран-09 .ещё-связь a { display: inline-flex; align-items: center; justify-content: center; min-height: 2.75rem;
-    padding: .5rem 1rem; border-radius: var(--радиус); font-weight: 600; font-size: var(--кегль-мелкий);
-    line-height: 1.2; text-decoration: none; white-space: nowrap; }
-  #экран-09.светлый .ещё-связь a { color: var(--цвет-текст); border: 1.5px solid color-mix(in srgb, var(--цвет-текст) 35%, transparent);
-    background: color-mix(in srgb, var(--цвет-текст) 4%, transparent); }
-  #экран-09.тёмный .ещё-связь a { color: var(--цвет-тёмный-текст); border: 1.5px solid color-mix(in srgb, var(--цвет-тёмный-текст) 38%, transparent);
-    background: color-mix(in srgb, var(--цвет-тёмный-текст) 6%, transparent); }
-  #экран-09.светлый .ещё-связь a:hover { background: color-mix(in srgb, var(--цвет-текст) 10%, transparent); }
-  #экран-09.тёмный .ещё-связь a:hover { background: color-mix(in srgb, var(--цвет-тёмный-текст) 14%, transparent); }
-  #экран-09 .ещё-связь { display: grid; grid-template-columns: 1fr 1fr; width: 100%; }
-  @media (max-width: 899px) { #экран-09 .вопрос-карточка .кнопка { width: 100%; } }
 
 /* экран 10 */
 #экран-10 .прайс { list-style: none; margin: 0 auto; padding: .5rem 1.25rem; max-width: 60rem; border-radius: var(--радиус-карточки); }
@@ -1874,21 +1859,6 @@ h2 .хвост-акцент { display: block; font-weight: 600; font-size: .6em;
     #экран-10 .прайс__строка { grid-template-columns: minmax(0, 1fr) 13rem; gap: 3rem; align-items: center; padding: 1.75rem 0; }
     #экран-10 .тариф__цена { flex-direction: column; align-items: flex-end; gap: .25rem; text-align: right; }
   }
-
-  #экран-10 .действие-секции .кнопка { min-height: 3.25rem; padding-inline: 2rem; font-size: var(--кегль-лид); }
-  #экран-10 .ещё-связь { display: flex; flex-wrap: wrap; gap: .5rem; margin-top: .875rem; }
-  #экран-10 .ещё-связь a { display: inline-flex; align-items: center; justify-content: center; min-height: 2.75rem;
-    padding: .5rem 1rem; border-radius: var(--радиус); font-weight: 600; font-size: var(--кегль-мелкий);
-    line-height: 1.2; text-decoration: none; white-space: nowrap; }
-  #экран-10.светлый .ещё-связь a { color: var(--цвет-текст); border: 1.5px solid color-mix(in srgb, var(--цвет-текст) 35%, transparent);
-    background: color-mix(in srgb, var(--цвет-текст) 4%, transparent); }
-  #экран-10.тёмный .ещё-связь a { color: var(--цвет-тёмный-текст); border: 1.5px solid color-mix(in srgb, var(--цвет-тёмный-текст) 38%, transparent);
-    background: color-mix(in srgb, var(--цвет-тёмный-текст) 6%, transparent); }
-  #экран-10.светлый .ещё-связь a:hover { background: color-mix(in srgb, var(--цвет-текст) 10%, transparent); }
-  #экран-10.тёмный .ещё-связь a:hover { background: color-mix(in srgb, var(--цвет-тёмный-текст) 14%, transparent); }
-  #экран-10 .действие-секции { flex-direction: column; align-items: center; }
-  #экран-10 .ещё-связь { justify-content: center; margin-inline: auto; }
-  @media (max-width: 899px) { #экран-10 .ещё-связь { display: grid; grid-template-columns: 1fr 1fr; width: 100%; max-width: 22rem; } }
 
 /* экран 11 */
 #экран-11 .границы { display: grid; gap: 1.5rem; }
@@ -1921,21 +1891,6 @@ h2 .хвост-акцент { display: block; font-weight: 600; font-size: .6em;
   #экран-12.тёмный .контакты { color: color-mix(in srgb, var(--цвет-тёмный-текст) 70%, transparent);
     border-top: 1px solid color-mix(in srgb, var(--цвет-тёмный-текст) 16%, transparent); }
   #экран-12.тёмный .контакты a { color: var(--цвет-тёмный-текст); }
-
-  #экран-12 .подложка-кнопки .кнопка { min-height: 3.25rem; padding-inline: 2rem; font-size: var(--кегль-лид); }
-  #экран-12 .ещё-связь { display: flex; flex-wrap: wrap; gap: .5rem; margin-top: .875rem; }
-  #экран-12 .ещё-связь a { display: inline-flex; align-items: center; justify-content: center; min-height: 2.75rem;
-    padding: .5rem 1rem; border-radius: var(--радиус); font-weight: 600; font-size: var(--кегль-мелкий);
-    line-height: 1.2; text-decoration: none; white-space: nowrap; }
-  #экран-12.светлый .ещё-связь a { color: var(--цвет-текст); border: 1.5px solid color-mix(in srgb, var(--цвет-текст) 35%, transparent);
-    background: color-mix(in srgb, var(--цвет-текст) 4%, transparent); }
-  #экран-12.тёмный .ещё-связь a { color: var(--цвет-тёмный-текст); border: 1.5px solid color-mix(in srgb, var(--цвет-тёмный-текст) 38%, transparent);
-    background: color-mix(in srgb, var(--цвет-тёмный-текст) 6%, transparent); }
-  #экран-12.светлый .ещё-связь a:hover { background: color-mix(in srgb, var(--цвет-текст) 10%, transparent); }
-  #экран-12.тёмный .ещё-связь a:hover { background: color-mix(in srgb, var(--цвет-тёмный-текст) 14%, transparent); }
-  @media (max-width: 899px) { #экран-12 .подложка-кнопки { display: flex; width: 100%; } #экран-12 .подложка-кнопки .кнопка { width: 100%; }
-    #экран-12 .финал-текст > div:has(.подложка-кнопки) { width: 100%; } #экран-12 .ещё-связь { max-width: none; } }
-  @media (max-width: 899px) { #экран-12 .ещё-связь { display: grid; grid-template-columns: 1fr 1fr; width: 100%; } }
 
 /* экран 13 */
 #экран-13 .подвал__сетка { display: grid; gap: 1.75rem; padding-block: 1.5rem; }
